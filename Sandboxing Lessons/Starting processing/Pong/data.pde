@@ -4,7 +4,8 @@ PImage Yeet;
 
 int ballX;
 int ballY;
-int ballstart;
+int ballstartX;
+int ballstartY;
 float ballXmove = 1.0;
 float ballYmove = 1.1;
 int speedX = 2;
