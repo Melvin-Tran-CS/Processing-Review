@@ -1,13 +1,13 @@
 //Global Variables
 
 void setup() {
-  size(900,900);
+  size(900, 1000);
   ball = loadImage("homo.jpg");
   img = loadImage("Depression.jpg");
   Yeet = loadImage("ainsley.jpg");
   //Yeet.resize(600, 600);
-  img.resize(900, 900);
-  
+  img.resize(900, 1000);
+
   //ball.resize(200, 200);
   ballstartX =  width/2 ; //starting ball position
   ballstartY = height/2;
@@ -16,39 +16,45 @@ void setup() {
 void draw() {
   background(img);
   //image(ball, ballstartX,height/2+ballX, width/5, width/5);
-  
-  if (ballstartX != 0|ballstartY !=0){
-  ballstartX+= ballX;
-  ballstartY+=ballY;
+
+  if (ballstartX != 0|ballstartY !=0) {
+    ballstartX+= ballX;
+    ballstartY+=ballY;
   }
   //720
-  if (ballX < 720 | ballY < 720) {
+  if (ballX < 900 ) {
     ballX += ballXmove;
+  }
+  if (ballY < 900) {
     ballY += ballYmove;
   }
-   if (ballX == 720|ballY == 720 ) {
+  if (ballX == 900-width/5/2) {
     ballXmove=-1;
     ballX += ballXmove;
+  } 
+  if (ballY == 900-height/5/2 ) {
     ballYmove = -1;
     ballY += ballYmove;
-  } 
-  
-  if (ballX < 0|ballY < 0){
-  ballX += ballXmove;
-  ballY += ballYmove;
   }
-   if(ballX == -100|ballY == -100) {
-   ballXmove = 1;
-   ballX += ballXmove;
-   ballYmove= 1;
-   ballY += ballYmove;
+  if (ballX < 0) {
+    ballX += ballXmove;
   }
-  
-  //image(ball, ballX,ballY,width/5,width/5);
-  rectMode(CENTER);
-  rect(ballX,ballY,width/5,width/5);
-  
- //print ("ballX:"+ballX,"ballY:"+ballY);
- println ("ballX:"+ballX,"   ballY:"+ballY);
+  if (ballY < 0) {
+    ballY += ballYmove;
+  }
+  if (ballX == -10+width/5/2) {
+    ballXmove = 1;
+    ballX += ballXmove;
+  }
+  if (ballY == -10+height/5/2) { 
+    ballYmove= 1;
+    ballY += ballYmove;
+  }
+  imageMode(CENTER);
+  image(ball, ballX, ballY, width/5, width/5);
+  //rectMode(CENTER);
+  //rect(ballX,ballY,width/5,width/5);
 
+  //print ("ballX:"+ballX,"ballY:"+ballY);
+  println ("ballX:"+ballX, "   ballY:"+ballY);
 }
