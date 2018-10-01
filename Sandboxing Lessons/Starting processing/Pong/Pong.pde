@@ -5,6 +5,8 @@ void setup() {
   ball = loadImage("homo.jpg");
   img = loadImage("Depression.jpg");
   Yeet = loadImage("ainsley.jpg");
+  Paddle1 = loadImage("dolan turnmp.jpg");
+  Paddle2 = loadImage("womenaresuperior.jpg");
   //Yeet.resize(600, 600);
   img.resize(900, 1000);
 
@@ -25,14 +27,14 @@ void draw() {
   if (ballX < 900 ) {
     ballX += ballXmove;
   }
-  if (ballY < 900) {
+  if (ballY < 1000) {
     ballY += ballYmove;
   }
   if (ballX == 900-width/5/2) {
     ballXmove=-1;
     ballX += ballXmove;
   } 
-  if (ballY == 900-height/5/2 ) {
+  if (ballY == 1000-height/5/2 ) {
     ballYmove = -1;
     ballY += ballYmove;
   }
@@ -50,6 +52,8 @@ void draw() {
     ballYmove= 1;
     ballY += ballYmove;
   }
+  image(Paddle1,60,500);
+  image(Paddle2,840,500);
   imageMode(CENTER);
   image(ball, ballX, ballY, width/5, width/5);
   //rectMode(CENTER);

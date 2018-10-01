@@ -1,7 +1,11 @@
 PImage img;
 PImage ball;
 PImage Yeet;
+PImage Paddle1;
+PImage Paddle2;
 
+float Paddle1X;
+float Paddle2X;
 int ballX;
 int ballY;
 int ballstartX;
