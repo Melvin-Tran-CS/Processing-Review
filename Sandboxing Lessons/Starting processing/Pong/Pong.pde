@@ -13,8 +13,24 @@ void setup() {
   //ball.resize(200, 200);
   ballstartX =  width/2 ; //starting ball position
   ballstartY = height/2;
-}
+} 
+  
+  
 
+void keyPressed(){
+if (key == 'w'){
+Paddle1Y += -5;
+}
+if (key == 's'){
+Paddle1Y += 5;
+}
+if (key == '8'){
+Paddle2Y += -5;
+}
+if (key == '5'){
+Paddle2Y += 5;
+}
+}
 void draw() {
   background(img);
   //image(ball, ballstartX,height/2+ballX, width/5, width/5);
@@ -52,8 +68,9 @@ void draw() {
     ballYmove= 1;
     ballY += ballYmove;
   }
-  image(Paddle1,60,500);
-  image(Paddle2,840,500);
+  
+  image(Paddle1,60,Paddle1Y);
+  image(Paddle2,840,Paddle2Y);
   imageMode(CENTER);
   image(ball, ballX, ballY, width/5, width/5);
   //rectMode(CENTER);

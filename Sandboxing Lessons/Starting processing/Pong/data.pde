@@ -4,8 +4,12 @@ PImage Yeet;
 PImage Paddle1;
 PImage Paddle2;
 
-float Paddle1X;
-float Paddle2X;
+
+
+float Paddle1Y;
+float Paddle2Y;
+int Paddle1Start;
+int Paddle2Start;
 int ballX;
 int ballY;
 int ballstartX;
