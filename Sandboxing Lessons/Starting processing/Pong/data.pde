@@ -8,8 +8,12 @@ PImage Paddle2;
 
 float Paddle1Y;
 float Paddle2Y;
+int Paddle1Pos;
+int Paddle2Pos;
 int Paddle1Start;
 int Paddle2Start;
+int Paddle1X;
+int Paddle2X;
 int ballX;
 int ballY;
 int ballstartX;

@@ -13,24 +13,37 @@ void setup() {
   //ball.resize(200, 200);
   ballstartX =  width/2 ; //starting ball position
   ballstartY = height/2;
+  Paddle1Y = height/2;
+  Paddle2Y = height/2;
+  Paddle1X = 60;
+  Paddle2X = 840;
 } 
-  
-  
 
-void keyPressed(){
-if (key == 'w'){
-Paddle1Y += -5;
+
+
+void keyPressed() {
+  if (key == 'w' && Paddle1Y != 75) {
+    Paddle1Y += -5;
+  } else {
+    Paddle1Y += 0;
+  } 
+  if (key == 's' && Paddle1Y != 925) {
+    Paddle1Y += 5;
+  } else {
+    Paddle1Y += 0;
+  }
+  if (key == '8' && Paddle2Y != 75) {
+    Paddle2Y += -5;
+  } else {
+  Paddle2Y +=0;
+  }
+  if (key == '5' && Paddle2Y != 925) {
+    Paddle2Y += 5;
+  } else {
+  Paddle2Y += 0;
+  }
 }
-if (key == 's'){
-Paddle1Y += 5;
-}
-if (key == '8'){
-Paddle2Y += -5;
-}
-if (key == '5'){
-Paddle2Y += 5;
-}
-}
+
 void draw() {
   background(img);
   //image(ball, ballstartX,height/2+ballX, width/5, width/5);
@@ -68,9 +81,9 @@ void draw() {
     ballYmove= 1;
     ballY += ballYmove;
   }
-  
-  image(Paddle1,60,Paddle1Y);
-  image(Paddle2,840,Paddle2Y);
+
+  image(Paddle1, Paddle1X, Paddle1Y);
+  image(Paddle2, 840, Paddle2Y);
   imageMode(CENTER);
   image(ball, ballX, ballY, width/5, width/5);
   //rectMode(CENTER);
@@ -78,4 +91,5 @@ void draw() {
 
   //print ("ballX:"+ballX,"ballY:"+ballY);
   println ("ballX:"+ballX, "   ballY:"+ballY);
+  println ("Paddle1Y:"+Paddle1Y, "  Paddle2Y:"+Paddle2Y);
 }
