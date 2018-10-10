@@ -11,12 +11,13 @@ void setup() {
   img.resize(900, 1000);
 
   //ball.resize(200, 200);
-  ballstartX =  width/2 ; //starting ball position
-  ballstartY = height/2;
+  ballX =  width/2 ; //starting ball position
+  ballY = height/2;
   Paddle1Y = height/2;
   Paddle2Y = height/2;
-  Paddle1X = 60;
-  Paddle2X = 840;
+  Paddle1Position =  Paddle1Y;
+ ballPosition = ballX & ballY;
+  ballArea = false;
 } 
 
 
@@ -35,12 +36,12 @@ void keyPressed() {
   if (key == '8' && Paddle2Y != 75) {
     Paddle2Y += -5;
   } else {
-  Paddle2Y +=0;
+    Paddle2Y +=0;
   }
   if (key == '5' && Paddle2Y != 925) {
     Paddle2Y += 5;
   } else {
-  Paddle2Y += 0;
+    Paddle2Y += 0;
   }
 }
 
@@ -81,9 +82,18 @@ void draw() {
     ballYmove= 1;
     ballY += ballYmove;
   }
-
+  if (ballPosition == Paddle1Position) {
+    ballArea = true ; 
+    if (ballArea = true){
+    ballXmove = 1;
+    }
+  } 
+ 
+  
+  
+  
   image(Paddle1, Paddle1X, Paddle1Y);
-  image(Paddle2, 840, Paddle2Y);
+  image(Paddle2, Paddle2X, Paddle2Y);
   imageMode(CENTER);
   image(ball, ballX, ballY, width/5, width/5);
   //rectMode(CENTER);
@@ -92,4 +102,5 @@ void draw() {
   //print ("ballX:"+ballX,"ballY:"+ballY);
   println ("ballX:"+ballX, "   ballY:"+ballY);
   println ("Paddle1Y:"+Paddle1Y, "  Paddle2Y:"+Paddle2Y);
+  println ("ballArea:"+ballArea);
 }

@@ -3,17 +3,16 @@ PImage ball;
 PImage Yeet;
 PImage Paddle1;
 PImage Paddle2;
-
-
-
+Boolean ballArea;
+float Paddle1Position;
+float Paddle2Position;
+float ballPosition;
 float Paddle1Y;
 float Paddle2Y;
-int Paddle1Pos;
-int Paddle2Pos;
 int Paddle1Start;
 int Paddle2Start;
-int Paddle1X;
-int Paddle2X;
+int Paddle1X = 60;
+int Paddle2X = 840;
 int ballX;
 int ballY;
 int ballstartX;
