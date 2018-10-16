@@ -15,9 +15,7 @@ void setup() {
   ballY = height/2;
   Paddle1Y = height/2;
   Paddle2Y = height/2;
-  Paddle1Position =  Paddle1Y;
- ballPosition = ballX & ballY;
-  ballArea = false;
+  
 } 
 
 
@@ -48,6 +46,7 @@ void keyPressed() {
 void draw() {
   background(img);
   //image(ball, ballstartX,height/2+ballX, width/5, width/5);
+  
 
   if (ballstartX != 0|ballstartY !=0) {
     ballstartX+= ballX;
@@ -61,11 +60,11 @@ void draw() {
     ballY += ballYmove;
   }
   if (ballX == 900-width/5/2) {
-    ballXmove=-1;
+    ballXmove=-5;
     ballX += ballXmove;
   } 
   if (ballY == 1000-height/5/2 ) {
-    ballYmove = -1;
+    ballYmove = -5;
     ballY += ballYmove;
   }
   if (ballX < 0) {
@@ -75,32 +74,38 @@ void draw() {
     ballY += ballYmove;
   }
   if (ballX == -10+width/5/2) {
-    ballXmove = 1;
+    ballXmove = 5;
     ballX += ballXmove;
   }
   if (ballY == -10+height/5/2) { 
-    ballYmove= 1;
+    ballYmove= 5;
     ballY += ballYmove;
   }
-  if (ballPosition == Paddle1Position) {
-    ballArea = true ; 
-    if (ballArea = true){
-    ballXmove = 1;
-    }
-  } 
+if ( ballX == 90 && ballY != Paddle1Y){
+ballX =  ballXReset;
+ballY =  ballYReset;
+}
+if (ballX == 110 && ballY == Paddle1Height){
+ballXmove = 5;
+}
+
+
+
+  
+
+
+
+    image(Paddle1, Paddle1X, Paddle1Y);
+    image(Paddle2, Paddle2X, Paddle2Y);
+    imageMode(CENTER);
+    image(ball, ballX, ballY, width/5, width/5);
+    //rectMode(CENTER);
+    //rect(ballX,ballY,width/5,width/5);
+
+    //print ("ballX:"+ballX,"ballY:"+ballY);
+    println ("ballX:"+ballX, "   ballY:"+ballY);
+    println ("Paddle1Y:"+Paddle1Y, "  Paddle2Y:"+Paddle2Y);
+    println ("Paddle1Height: " + Paddle1Height);
  
   
-  
-  
-  image(Paddle1, Paddle1X, Paddle1Y);
-  image(Paddle2, Paddle2X, Paddle2Y);
-  imageMode(CENTER);
-  image(ball, ballX, ballY, width/5, width/5);
-  //rectMode(CENTER);
-  //rect(ballX,ballY,width/5,width/5);
-
-  //print ("ballX:"+ballX,"ballY:"+ballY);
-  println ("ballX:"+ballX, "   ballY:"+ballY);
-  println ("Paddle1Y:"+Paddle1Y, "  Paddle2Y:"+Paddle2Y);
-  println ("ballArea:"+ballArea);
-}
+  }
