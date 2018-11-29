@@ -1,5 +1,5 @@
-//Global Variables
-
+//Global Variable
+Boolean LeftSide = false;
 void setup() {
   size(900, 1000);
   ball = loadImage("homo.jpg");
@@ -11,8 +11,8 @@ void setup() {
   img.resize(900, 1000);
 
   //ball.resize(200, 200);
-  ballX =  width/2 ; //starting ball position
-  ballY = height/2;
+  ballX =  ballStartX ; //starting ball position
+  ballY = ballStartY;
   Paddle1Y = height/2;
   Paddle2Y = height/2;
   
@@ -46,49 +46,21 @@ void keyPressed() {
 void draw() {
   background(img);
   //image(ball, ballstartX,height/2+ballX, width/5, width/5);
-  
-
-  if (ballstartX != 0|ballstartY !=0) {
-    ballstartX+= ballX;
-    ballstartY+=ballY;
-  }
-  //720
-  if (ballX < 900 ) {
-    ballX += ballXmove;
-  }
-  if (ballY < 1000) {
-    ballY += ballYmove;
-  }
-  if (ballX == 900-width/5/2) {
-    ballXmove=-5;
-    ballX += ballXmove;
-  } 
-  if (ballY == 1000-height/5/2 ) {
-    ballYmove = -5;
-    ballY += ballYmove;
-  }
-  if (ballX < 0) {
-    ballX += ballXmove;
-  }
-  if (ballY < 0) {
-    ballY += ballYmove;
-  }
-  if (ballX == -10+width/5/2) {
-    ballXmove = 5;
-    ballX += ballXmove;
-  }
-  if (ballY == -10+height/5/2) { 
-    ballYmove= 5;
-    ballY += ballYmove;
-  }
-if ( ballX == 90 && ballY != Paddle1Y){
-ballX =  ballXReset;
-ballY =  ballYReset;
+  ballX += ballXSpeed;
+  ballY += ballYSpeed;
+if (ballX == Paddle1X-50 && ballY == Paddle2Y) {
+ballXSpeed *= -1;
 }
-if (ballX == 110 && ballY == Paddle1Height){
-ballXmove = 5;
+if (ballX < 0){
+ballXSpeed *= -1;
 }
-
+if (ballY > height){
+ballYSpeed *= -1;
+}
+if (ballY < 0){
+ballYSpeed *= -1;
+}
+ Score();
 
 
   
